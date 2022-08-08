@@ -1,0 +1,13 @@
+create table international_dept (country_name text , country_code text , indicator_name text ,indicator_code text , dept float );
+copy international_dept from 'D:\international_debt (1).csv' delimiter ',' csv header null 'na';
+select * from international_dept;
+select sum (dept) from international_dept;
+select country_name, sum(dept) as totaldept
+from international_dept
+group by country_name
+order by totaldept desc limit 1;
+select avg(dept),indicator_code from international_dept
+group by indicator_code;
+select country_name from international_dept
+ order by dept desc ;
+ 
